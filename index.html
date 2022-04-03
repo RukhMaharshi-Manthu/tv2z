@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Information about the page -->
+        <!--This is the comment tag-->
+         
+        <title></title>
+    </head>
+<body style="background-color: black;">
+<div>
+    <form>
+        <div id="main" >
+            <img src="./images/logoo.jpg" alt="LV2Z" id="imgname" style="width:150px">
+            <h2 style="color:white;float: right;padding-right: 30px;">LOG IN</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <form style="text-align: center;width: 50vw; margin-left : 25vw;"">
+                <h2 style="text-align: center;color:white">LOG IN</h2>
+                <h4  style="text-align: center;color:rgb(206, 190, 190);">Enter your credentials to login to TV2Z</h4>
+
+                <div style="text-align: center;width: 50vw; margin-left : 25vw;"">
+                    <input type='text' id='txtEmail' placeholder='Email' style="width:200px;height: 30px;border:solid 1px #ccc;
+                    border-radius: 5px; " required />
+                  
+                  <span id="error"></span>
+                    <input type='password' id='txtpassword' placeholder='password' style="width:200px;height: 30px;border:solid 1px #ccc;border-radius: 5px;margin-left: 10px; " required/>
+                    <img src=
+                    "https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash-300x240.png"
+                                    width="1.8%" height="1%" 
+                                    style="margin-left: -5%;display:inline;
+                                    vertical-align: middle" 
+                                    id="togglePassword">
+                  <br>
+                  <span id="error1"></span>
+                  </div>
+                  <div style="color:rgb(206, 190, 190);text-align: center; margin-top: 20px;"">Forgot password ? <a href="#"><b style="color:white">Click here</b></a></div>
+                  <div style="color:rgb(206, 190, 190);text-align: center;margin-top: 20px;">By clicking on 'Log in' button you are hereby agreeing to our <b style="color:white">Privacy Policy</b> and <b style="color:white">Terms and Conditions</b></div>
+                  <div style="margin-top: 20px;"><input type='submit' name='submit' value='LOGIN' onclick='check();' style="text-align: center;width: 5vw; margin-left : 48vw;background-color: rgb(148, 148, 238);color: white;height: 30px;"/></div>
+                  <div style="color:rgb(206, 190, 190); text-align: center;margin-top: 20px;;"">Don't have an account <b style="color:white;"">Sign up</b></div>
+            </form>
+
+        </div>
+    </form>
+</div>
+
+<script>
+    function check() {
+      
+
+  
+        var email = document.getElementById('txtEmail');
+        var filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  var error = document.getElementById("error");
+  
+  if (!filter.test(email.value)) {
+           
+    console.log(" checking email")
+            email.focus;
+          //error.textContent = "Please enter a valid email"
+            error.style.color = "white";
+            alert("Invalid email");
+            console.log("error1")
+            return false;
+           
+        }
+  else{
+    error.textContent ="";
+  }
+  
+  var password = document.getElementById('txtpassword');
+        var filter1 = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  var error1 = document.getElementById("error1");
+  
+  if (!filter1.test(password.value)) {
+           
+          
+            password.focus;
+          error1.textContent = "Invalid password"
+            error1.style.color = "white"
+            console.log("error")
+            alert("Invalid password");
+            return false;
+        }
+  else{
+    error1.textContent ="";
+  }
+  if(true){
+    var name = document.getElementById('txtEmail');
+    var pw = document.getElementById('txtpassword');
+
+        localStorage.setItem('name', name.value);
+        localStorage.setItem('pw', pw.value);
+        alert('Your login successfully');
+        
+    }
+
+  
+
+   
+  }
+  
+   
+    
+
+
+    const togglePassword = 
+        document.querySelector('#togglePassword');
+          
+    const password = document.querySelector('#txtpassword');
+  
+    togglePassword.addEventListener('click', function (e) {
+  
+        // Toggle the type attribute
+        const type = password.getAttribute(
+            'type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+  
+        // Toggle the eye slash icon
+        if (togglePassword.src.match(
+"https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash.png")) {
+            togglePassword.src =
+"https://media.geeksforgeeks.org/wp-content/uploads/20210917145551/eye.png";
+        } else {
+            togglePassword.src =
+"https://media.geeksforgeeks.org/wp-content/uploads/20210917150049/eyeslash.png";
+        }
+    });
+</script>
+</body>
+</html>
